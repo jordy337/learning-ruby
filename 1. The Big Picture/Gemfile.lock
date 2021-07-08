@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    multi_json (1.15.0)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  multi_json
+
+BUNDLED WITH
+   2.2.22
