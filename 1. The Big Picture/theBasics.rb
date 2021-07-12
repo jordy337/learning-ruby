@@ -25,10 +25,9 @@ puts selected_albums # Ouput result
 
 # * Method 2
 # Lets turn that classic_jazz? function into a "block" (anonymous function of sorts) and apply the "array.select" method to get the values we want
-selected_albums = albums.select {|album|
+selected_albums = albums.select{|album|
     album[GENRE] == "Jazz" and album[YEAR].to_i.between?(1950, 1959)
-}
-.sort_by {|album|
+}.sort_by {|album|
     album[YEAR].to_i
 }.each {|album|
     puts album.join(', ')
