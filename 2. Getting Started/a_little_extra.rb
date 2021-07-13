@@ -99,3 +99,67 @@ end
 5.times do
     # Do something five times I guess
 end
+
+# * Conditionals
+# Note: nil and false are really the only values that auto evaluate to false in Ruby. Strings, 0, empty strings "" all are true
+
+
+# Regular Conditonal 
+if test_variable == 1
+    # Do something
+elsif test_variable == 2
+    # Do something else
+else
+    # Do something else else
+end 
+
+# Weirder
+puts test_variable if test_variable != 2
+
+# WAY WEIRDER
+puts test_variable unless test_variable == 2
+
+# "Case," like a switch
+case test_variable
+when 1
+    puts "Is 1"
+when 2
+    puts "Is 2"
+when 321
+    puts "YAY, IT'S 321"
+else
+    puts "It's something entirely different, that's crazy"
+end
+
+# Works on the "case equal operator" (===)
+puts test_variable === 1 # False
+puts (1..10) === 5 # True, case equal evaluates if something is in a range in this case
+# RegExp is === w/ a string if it matches
+
+# * Exception Management
+
+begin
+    # Do code that can throw an exception
+rescue => exception
+    # Rescue it, referencing the exception
+end
+
+# Example of only catching one type of exception, just reference the class name
+begin
+    # Do code that can throw an exception
+rescue UnknownUsernameError => exception
+    # Rescue it, referencing the exception
+    raise exception # Re-raise the exception for whatever reason
+end
+
+# Extra blocks
+begin
+    # Do code that can throw an exception
+rescue => exception
+    # Rescue it, referencing the exception
+else
+    # Optional extra block for no exception
+ensure
+    # Gets executed at the end no matter what
+    # Usually used for cleanup, like closing a connection before crashing or continuing onward
+end
