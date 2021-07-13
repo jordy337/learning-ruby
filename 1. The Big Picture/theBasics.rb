@@ -15,7 +15,7 @@ end
 #  This is a traditional loop, but a little complex and annoying
 selected_albums = []
 
-for i in 0...albums.size do
+for i in 0...albums.length do # Three dots is a range but remove last, so like albums.length - 1
     if classic_jazz?(albums[i]) # Conditional
         selected_albums << albums[i] # Push to array
     end
