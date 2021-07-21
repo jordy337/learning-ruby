@@ -78,3 +78,33 @@ generated_csv = CSV.generate do |c|
 end
 
 File.write("./demo_files/demo_generated.csv", generated_csv)
+
+# * Reading JSON
+
+require 'json'
+
+json_string = '{ "id": 1, "firstName": "Lead", "lastName": "Organa"}' # Could also read/load JSON as if it was a text file here
+json_data = JSON.parse(json_string) # Parses JSON string into hash, JSON.load also exists, which can also accept a direct file reference
+puts json_data['id']
+
+# * Generate JSON
+
+# Method 1
+hash = {
+    id: 1,
+    firstName: "Leah",
+    lastName: "Organa"
+}
+
+hash_json = hash.to_json # Converts into JSON String
+re_hash = JSON.parse(hash_json) # Converts back into hash if you wanted to
+
+# Then use your JSON! Could even just write it to a whatever.json file as if it were a regular txt file. 
+
+ # Method 2 - Different function, can take more complex arguments, but still returns JSON string
+ hash_json_2 = JSON.dump(hash)
+
+ # Method 3 - Returns formatted/prettified JSON string with newlines, indents, etc.
+ hash_json_3 = JSON.pretty_generate(hash)
+
+ puts hash_json_3
