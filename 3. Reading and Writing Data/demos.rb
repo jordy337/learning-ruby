@@ -1,6 +1,6 @@
 # * Read from file
 
-file_location = "sample.txt"
+file_location = "./demo_files/sample.txt"
 new_content = "I'm new content!"
 
 # Method 1
@@ -23,7 +23,7 @@ end
 # * Reading CSV
 
 require "csv"
-csv_location = "sample.csv"
+csv_location = "./demo_files/sample.csv"
 
 # Method 1 - Treat as string
 csv_string = File.read(csv_location) # This isn't very useful, can't access data easily.
@@ -54,10 +54,10 @@ data = [
 
 # Method 1 - Write as string
 csv_string = data.map{ |d| d.join(",") }.join("\n")
-File.write("demo_generated.csv", csv_string)
+File.write("./demo_files/demo_generated.csv", csv_string)
 
 # Method 2 - CSV library
-CSV.open("demo_generated.csv", "w") do |c|
+CSV.open("./demo_files/demo_generated.csv", "w") do |c| # You guessed it! "w" means write, use "a" to append
     # c is CSV array of arrays, << operator is to append
     c << ["id", "first_name", "last_name"]
     c << [1, "Johh", "Doe"]
@@ -77,4 +77,4 @@ generated_csv = CSV.generate do |c|
     c <<  [5, "Jordyn", "Murphy Mindorff"]
 end
 
-File.write("demo_generated.csv", generated_csv)
+File.write("./demo_files/demo_generated.csv", generated_csv)
