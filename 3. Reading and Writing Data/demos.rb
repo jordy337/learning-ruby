@@ -101,10 +101,28 @@ re_hash = JSON.parse(hash_json) # Converts back into hash if you wanted to
 
 # Then use your JSON! Could even just write it to a whatever.json file as if it were a regular txt file. 
 
- # Method 2 - Different function, can take more complex arguments, but still returns JSON string
- hash_json_2 = JSON.dump(hash)
+# Method 2 - Different function, can take more complex arguments, but still returns JSON string
+hash_json_2 = JSON.dump(hash)
+# Method 3 - Returns formatted/prettified JSON string with newlines, indents, etc.
+hash_json_3 = JSON.pretty_generate(hash)
+puts hash_json_3
 
- # Method 3 - Returns formatted/prettified JSON string with newlines, indents, etc.
- hash_json_3 = JSON.pretty_generate(hash)
+# * Making a GET Request
 
- puts hash_json_3
+require 'net/http'
+
+
+# Method 1
+endpoint = "https://jsonplaceholder.typicode.com/todos/1"
+
+uri = URI(endpoint) # Parse string into URI object
+response_content = Net::HTTP.get(uri) # Returns JSON/Response Body String
+
+puts response_content
+
+# Method 2
+response = Net::HTTP.get_response(uri) # Returns Full Response Object
+
+puts response.code
+puts response.content_type
+puts response.body
