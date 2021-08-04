@@ -1,5 +1,8 @@
 # Class example
 class Dispenser
+    attr_reader :liters # Allows reading of property from Object Instance.
+    # attr_writer allows writing, attr_accessor allows both
+
     # Initializiation function, like a constuctor, auto-ran
     def initialize()
         refill(5)
@@ -23,6 +26,7 @@ end
 # Create instance object, use a method
 office_dispenser = Dispenser.new
 puts office_dispenser.dispense(5)
+puts office_dispenser.liters
 
 # ? How far do objects go in Ruby?
 
